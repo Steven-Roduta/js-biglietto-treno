@@ -1,29 +1,36 @@
 //Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
-//- il prezzo del biglietto è definito in base ai km (0.21 € al km)
-const bigliettoKm = 0.21;
-const string = '€';
-const bigliettoKmstring = (0.21 + '' + '€' );
+// il prezzo del biglietto è definito in base ai km (0.21 € al km)
 //- va applicato uno sconto del 20% per i minorenni
-const scontoMin = 20;
-const stringPerc = '%';
-const scontoMinstringPerc = (20 + '%');
-const percentualeMin = 100;
-
-const TicketCost = (bigliettoKm * scontoMin) / percentualeMin;
-if (bigliettoKm < TicketCost ) {
-    alert(" Discount for Minors -18")
-}
-
-//- va applicato uno sconto del 40% per gli over 65.
-
-const scontoOv = 40;
-const stringCent = '%';
-const scontoMinstringCent = (40 + '%');
-const percentualeOver = 100;
-
-const TicketCostOver = (bigliettoKm * scontoOv) / percentualeOver;
-if (bigliettoKm > TicketCostOver) {
-    alert("Discount for Over +65")
-}
+// va applicato uno sconto del 40% per gli over 65.
 //- L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
+
+const forKm = 0.21;
+
+// num di km che l'utente deve fare
+
+const UtenteKm = Number (prompt ('totale km da fare'));
+
+// età dell'utente
+
+const UtenteAge = Number (prompt('metti la tua età'));
+
+// calcolo totale km
+
+let totalCost = Utentekm * forKm;
+
+// Sconto per minorenni 20% and 40% di sconto per gli over 65+
+
+let discount = 0;
+
+if ( UtenteAge) {
+    discount = totalCost * 0.2;
+} else if (UtenteAge >= 65) {
+    discount = totalCost * 0.4;
+}
+
+totalCost = totalCost - discount;
+
+console.log(totalCost);
+
+alert('il prezzo totale è: ${totalCost.toFixed(2)}€');
 
